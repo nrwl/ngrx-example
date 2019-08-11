@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Filters } from './model';
 import { Talk } from '@ngrx-example/api-interfaces';
 import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 
 @Injectable()
 export class Backend {
@@ -25,6 +25,12 @@ export class Backend {
   rateTalk(talk: Talk, rating: number): void {
     this.http
       .post(`/api/rate`, { id: talk.id, yourRating: rating })
+      .pipe(
+        catchError(e => {
+          talk.yourRating = null;
+          throw e;
+        })
+      )
       .subscribe();
   }
 
