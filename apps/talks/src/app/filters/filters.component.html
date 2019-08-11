@@ -1,0 +1,13 @@
+<div [formGroup]="filtersForm">
+  <mat-form-field>
+    <input matInput formControlName="title" placeholder="Title" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput formControlName="speaker" placeholder="Speaker" />
+  </mat-form-field>
+
+  <mat-checkbox formControlName="highRating">
+    High Rating
+  </mat-checkbox>
+</div>

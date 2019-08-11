@@ -1,0 +1,18 @@
+:host {
+  padding: 10px;
+  display: flex;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+mat-form-field {
+  flex-grow: 1;
+}
+
+mat-checkbox {
+  flex-grow: 1;
+}
