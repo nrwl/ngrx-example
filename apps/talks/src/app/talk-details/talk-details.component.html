@@ -2,9 +2,15 @@
   <div id="rating-column">
     Rating
     <span id="rating">{{ talk.rating | formatRating }}</span>
+
+    <span *ngIf="talk.yourRating">
+      Your Rating
+      <span id="rating">{{ talk.yourRating | formatRating }}</span>
+    </span>
   </div>
 
   <div>
+    {{ talk | json }}
     <span id="title">{{ talk.title }}</span>
     <span id="speaker">{{ talk.speaker }}</span>
 
@@ -14,9 +20,10 @@
 
     <watch-button
       [talk]="talk"
-      [watched]="watchService.isWatched(talk)"
+      [watched]="isWatched"
       (watch)="handleWatch()"
     ></watch-button>
+
     <rate-button [talk]="talk" (rate)="handleRate($event)"></rate-button>
   </div>
 </mat-card>

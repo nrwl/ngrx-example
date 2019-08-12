@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output, Inject, Input } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { createFiltersObject } from '../model';
 import { debounceTime } from 'rxjs/operators';
+import { createFiltersObject } from '../+state/talks.model';
 
 @Component({
   selector: 'filters-cmp',
