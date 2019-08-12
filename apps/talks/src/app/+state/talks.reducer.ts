@@ -31,12 +31,12 @@ const talksReducer = createReducer(
   on(TalksActions.talkUpdated, (state, { talk }) =>
     talksAdapter.upsertOne(talk, state)
   ),
-  on(TalksActions.rate, (state, { talkId, rating }) => {
-    return talksAdapter.updateOne(
+  on(TalksActions.rate, (state, { talkId, rating }) =>
+    talksAdapter.updateOne(
       { id: talkId, changes: { yourRating: rating } },
       state
-    );
-  }),
+    )
+  ),
   on(TalksActions.unrate, (state, { talkId }) =>
     talksAdapter.updateOne({ id: talkId, changes: { yourRating: null } }, state)
   ),
